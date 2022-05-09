@@ -5,10 +5,12 @@
       <map>
         <entry key="..\:/Users/Oussama/AndroidStudioProjects/Pets/app/src/main/res/drawable/ic_launcher_background.xml" value="0.137" />
         <entry key="..\:/Users/Oussama/AndroidStudioProjects/Pets/app/src/main/res/layout/activity_catalog.xml" value="0.1" />
+        <entry key="..\:/Users/Oussama/AndroidStudioProjects/Pets/app/src/main/res/layout/activity_editor.xml" value="0.10326086956521739" />
         <entry key="..\:/Users/Oussama/AndroidStudioProjects/Pets/app/src/main/res/layout/activity_main.xml" value="0.15579710144927536" />
         <entry key="..\:/Users/Oussama/AndroidStudioProjects/Pets/app/src/main/res/menu/menu_catalog.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Oussama/AndroidStudioProjects/Pets/app/src/main/res/menu/menu_editor.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Oussama/AndroidStudioProjects/Pets/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Users/Oussama/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_item.xml" value="0.15579710144927536" />
       </map>
     </option>
   </component>
