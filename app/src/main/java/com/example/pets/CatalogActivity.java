@@ -1,9 +1,11 @@
 package com.example.pets;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +23,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
  */
 public class CatalogActivity extends AppCompatActivity {
 
+    private PetDbHelper mDbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +39,18 @@ public class CatalogActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        mDbHelper = new PetDbHelper(this);
+
         displayDatabaseInfo();
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        displayDatabaseInfo();
+    }
+
     private void displayDatabaseInfo() {
         // To access our database, we instantiate our subclass of SQLiteOpenHelper
         // and pass the context, which is the current activity.
@@ -69,6 +83,17 @@ public class CatalogActivity extends AppCompatActivity {
 
     private void insertPet() {
         // TODO: Insert a single pet into the database
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+        ContentValues values= new ContentValues();
+
+        values.put(PetEntry.COLUMN_PET_NAME,"toto");
+        values.put(PetEntry.COLUMN_PET_BREED,"terrier ");
+        values.put(PetEntry.COLUMN_PET_GENDER, PetEntry.GENDER_MALE);
+        values.put(PetEntry.COLUMN_PET_WEIGHT,7);
+
+        long newRowId = db.insert(PetEntry.TABLE_NAME,null,values);
+        Log.v("CatalogActivity1", "new row id "+ newRowId);
     }
 
     @Override
