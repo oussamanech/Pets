@@ -91,7 +91,6 @@ public class PetProvider extends ContentProvider {
                 throw new IllegalArgumentException("Insertion is not supported for " + uri);
         }
 
-        return null;
     }
 
     @Override
