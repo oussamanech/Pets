@@ -13,9 +13,15 @@ public class PetProvider extends ContentProvider {
     /** Tag for the log messages */
     public static final String LOG_TAG = PetProvider.class.getSimpleName();
 
+    //database helper object
+    private PetDbHelper mDBHelper;
+
 
     @Override
     public boolean onCreate() {
+        mDBHelper = new PetDbHelper(getContext());
+
+
         return false;
     }
 
