@@ -1,5 +1,7 @@
 package com.example.pets;
 
+
+
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,9 +18,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.CursorLoader;
-import androidx.loader.content.Loader;
+
+import android.app.LoaderManager;
+import android.content.CursorLoader;
+import android.content.Loader;
+import android.widget.SimpleCursorAdapter;
 
 import com.example.pets.data.PetContract.PetEntry;
 import com.example.pets.data.PetDbHelper;
