@@ -55,14 +55,12 @@ public class PetProvider extends ContentProvider {
         switch (match){
             case PETS:
                 cursor = database.query(PetEntry.TABLE_NAME,strings,s,strings1,null,null,s1);
-
                 break;
 
             case PET_ID:
                 s = PetEntry._ID + "=?";
                 strings1 = new String[]{String.valueOf(ContentUris.parseId(uri))};
                 cursor =database.query(PetEntry.TABLE_NAME,strings,s,strings1,null,null,s1);
-
                 break;
 
             default:
