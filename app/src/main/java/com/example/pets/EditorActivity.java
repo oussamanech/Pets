@@ -72,23 +72,19 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editor);
 
-        // Examine the intent that was used to launch this activity,
-        // in order to figure out if we're creating a new pet or editing an existing one.
         Intent intent = getIntent();
-        //Uri currentPetUri = intent.getData();
         mCurrentPetUri = intent.getData();
-        // If the intent DOES NOT contain a pet content URI, then we know that we are
-        // creating a new pet.
-        //if (currentPetUri == null) {
+
         if (mCurrentPetUri == null) {
                 // This is a new pet, so change the app bar to say "Add a Pet"
                 setTitle(getString(R.string.editor_activity_title_new_pet));
+                invalidateOptionsMenu();
             } else {
                 // Otherwise this is an existing pet, so change app bar to say "Edit Pet"
                 setTitle(getString(R.string.editor_activity_title_edit_pet));
-            // Initialize a loader to read the pet data from the database
-            // and display the current values in the editor
-            getLoaderManager().initLoader(EXISTING_PET_LOADER, null, this);
+                // Initialize a loader to read the pet data from the database
+                // and display the current values in the editor
+                getLoaderManager().initLoader(EXISTING_PET_LOADER, null, this);
             }
 
 
@@ -97,6 +93,15 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         mBreedEditText = (EditText) findViewById(R.id.edit_pet_breed);
         mWeightEditText = (EditText) findViewById(R.id.edit_pet_weight);
         mGenderSpinner = (Spinner) findViewById(R.id.spinner_gender);
+
+        // Setup OnTouchListeners on all the input fields, so we can determine if the user
+        // has touched or modified them. This will let us know if there are unsaved changes
+        // or not, if the user tries to leave the editor without saving.
+        mNameEditText.setOnTouchListener(mTouchListener);
+        mBreedEditText.setOnTouchListener(mTouchListener);
+        mWeightEditText.setOnTouchListener(mTouchListener);
+        mGenderSpinner.setOnTouchListener(mTouchListener);
+
         setupSpinner();
         }
 
